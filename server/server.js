@@ -19,7 +19,7 @@ mongoose.connection.on('error',function(err){
     process.exit(-1)
 })
 
-app.use('/api/users',routes);
+
 // app.use('/api/thing','./api/thing/index');
 
 // Index Route
@@ -27,17 +27,17 @@ app.get('/', (req, res) => {
     res.send('invaild endpoint');
   });
 express_config(app);
-
+app.use('/api/users',routes);
   
 //   app.get('/*', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'public/index.html'));
 //   });
-
 
 function startServer(){
     server.listen(config.port,function(){
         console.log(`Listening on port ${config.port} `+app.get('env'))
     })
 }
+
 setImmediate(startServer);
-module.exports = app;
+module.exports = app

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "e",
     "start": "nodemon server/server.js"
   },
   "keywords": [
@@ -24,12 +24,14 @@
     "supertest": "^3.0.0"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.9",
+    "mongoose-unique-validator": "^1.0.6",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1"
   }
