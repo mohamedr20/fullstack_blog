@@ -17,5 +17,3 @@ module.exports = function(app){
     app.use('/api/users',User_routes);
     app.use('/api/article',Article_routes);
 }
-
-

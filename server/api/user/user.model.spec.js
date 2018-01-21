@@ -33,10 +33,8 @@ function startServer() {
   }
 
 describe('User Model Tests',function(){
-    before(function(){
-        this.timeout(10000)
-        startServer()
-        return User.remove()
+    before(function(done){
+        return User.remove(done)
     })
     beforeEach(function(done){
         genUser()
