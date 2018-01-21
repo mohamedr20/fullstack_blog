@@ -6,23 +6,12 @@ const controller = require('./user.controller');
 const bcrypt = require('bcrypt')
 // let auth  = require('')
 
+router.get('/',controller.findAll);
+router.get('/:id',controller.getSingleUser);
+router.post('/',controller.create);
+router.post('/authenticate',controller.authenticate);
+router.delete('/:id',controller.delete);
 
-router.post('/register',(req,res,next)=>{
-    let newUser = new User({
-        username:req.body.username,
-        email:req.body.email,
-        image_url:req.body.image_url,
-        password:req.body.password,
-        bio:req.body.bio
-    })
-    User.addUser(newUser, (err, user) => {
-        console.log(newUser)
-        if(err) {
-          res.json({success: false, msg: 'Failed to register user'});
-        } else {
-          res.json({success: true, msg: 'User registered'});
-        }
-      });
-});
+
 
 module.exports = router;
