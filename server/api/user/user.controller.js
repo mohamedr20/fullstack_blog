@@ -22,9 +22,7 @@ module.exports = {
         let newUser = new User({
             username:req.body.username,
             email:req.body.email,
-            image_url:req.body.image_url,
             password:req.body.password,
-            bio:req.body.bio
         })
         User.addUser(newUser, (err, user) => {
             if(err) {
@@ -33,6 +31,9 @@ module.exports = {
               res.status(201).send({success: true, msg: 'User registered'});
             }
           });
+    },
+    edit:function(req,res){
+
     },
     authenticate:function(req,res){
         let username = req.body.username;

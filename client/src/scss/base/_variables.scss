@@ -1,0 +1,45 @@
+
+
+$colors:(
+    "blue":#4088ed,
+    "grey":#808A90,
+    "dark-grey":#373A3C,
+    "light-grey":#F3F3F3,
+    "white":#FFFFFF,
+);
+
+
+@function color($name){
+    @return map-get($colors,$name)
+}
+
+$content-padding:10px !default;
+$content-padding-vertical:15px !default;
+$content-padding-horizontal:15px !default;
+
+$padding-base-vertical: 6px !default;
+$padding-base-horizontal:12px !default;
+
+$padding-large-veritcal:8px;
+$padding-large-horizontal:16px;
+
+$padding-small-vertical:5px !default;
+$padding-small-horizontal:10px !default;
+
+$border-width-base:1px !default;
+$border-width-thin:.5px !default;
+$border-width-thick:2px !default;
+
+$base-border-radius:3px !default;
+$large-border-radius:5px !default;
+$small-border-radius:1px !default;
+
+
+
+$base-font-size:19px !default;
+$h1-font-size:32px;
+$h2-font-size:26px;
+$h3-font-size:22px;
+$h4-font-size:19px;
+$h5-font-size:16px;
+$h6-font-size:12px;
