@@ -8,16 +8,17 @@ const express_config = require('./express');
 var app = express();
 var server = http.createServer(app);
 
-
 mongoose.connect(config.db_uri,{
     useMongoClient:true,
 })
-.then(()=>console.log('Connected to mongoDB'))
-.catch((err)=>console.error(err));
+.then(()=>console.log(`Connected to MongoDB`))
+.catch((err)=>err);
+
 mongoose.connection.on('error',function(err){
     console.log(`MongoDB connection Error: ${err}`)
     process.exit(-1)
 })
+
 express_config(app);
 function startServer() {
     server.listen(config.port, config.ip, function() {

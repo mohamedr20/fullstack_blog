@@ -9,13 +9,14 @@ let should = chai.should()
 
 let newUser;
 chai.use(chaiHttp);
-describe('User API Test',function(){
+describe('Article API Test',function(){
 
     describe('GET /api/article',function(){
-        it('it should GET all the Users',function(done){
+        it('it should GET all the Articles',function(done){
             chai.request(app)
             .get('/api/article')
             .end((err,res)=>{
+                console.log(res.body)
                 res.should.have.status(200)
                 res.body.should.be.a('array');
                 res.body.length.should.be.above(0)

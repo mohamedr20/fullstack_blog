@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "e",
+    "unit_test": "NODE_ENV=test mocha server/api/**/*.spec.js",
+    "integration":"NODE_ENV=test mocha server/api/**/*.integration.js",
     "start": "nodemon server/server.js"
   },
   "keywords": [
@@ -16,11 +17,14 @@
   "author": "Mohamed Isse",
   "license": "ISC",
   "devDependencies": {
+    "@angular/cli": "^1.6.6",
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "chai-http": "^3.0.0",
     "expect": "^22.1.0",
     "mocha": "^4.1.0",
     "nodemon": "^1.14.11",
+    "sinon": "^4.2.2",
     "supertest": "^3.0.0"
   },
   "dependencies": {
@@ -32,6 +36,7 @@
     "helmet": "^3.9.0",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.9",
+    "mongoose-paginate": "^5.0.3",
     "mongoose-unique-validator": "^1.0.6",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1"

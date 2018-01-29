@@ -3,18 +3,18 @@ let Article = require('./article.model');
 module.exports = {
     create:function(req,res){
         let newArticle = new Article({
-            slug: req.params.slug,
-            title: req.params.title,
-            description: req.params.description,
-            body: req.params.body,
-            tagList: req.params.tagList,
-            favorited: req.params.favorited,
-            favoritesCount: req.params.favoritesCount,
+            slug: req.body.slug,
+            title: req.body.title,
+            description: req.body.description,
+            body: req.body.body,
+            tagList: req.body.tagList,
+            favorited: req.body.favorited,
+            favoritesCount: req.body.favoritesCount,
             author: {
-              username: req.params.username,
-              bio: req.params.bio,
-              image: req.params.image,
-              following: req.params.following
+              username: req.body.username,
+              bio: req.body.bio,
+              image: req.body.image,
+              following: req.body.following
             }
         })
         Article.addArticle(newArticle,(err,article)=>{
@@ -24,26 +24,34 @@ module.exports = {
             res.status(201).json({success:true,msg:'Article was saved!'})
         })
     },
-    findAll:function(req,res){
+    findAll:function(req,res,next){
         Article.find({}).limit(req.params.limit).exec()
         .then((article)=>{
             res.status(200).json(article)
         })
-        .catch((err)=>console.log(err))
+        .catch(next)
     },
-    findOne:function(req,res){
+    findOne:function(req,res,next){
         Article.findById(req.params.id).exec()
         .then((article)=>{
             res.status(200).json(article)
         })
-        .catch((err)=>console.log(err))
+        .catch(next)
     },
-    delete:function(req,res){
+    update:function(req,res,next){
+        console.log(req.body)
+        Article.findByIdAndUpdate(req.params.id,{$set:req.body},function(err,result){
+            if(err){
+                throw new Error(err)
+            }
+            res.status(200).json({message:'Article was updated'})
+        })
+    },
+    delete:function(req,res,next){
         Article.findByIdAndRemove(req.params.id).exec()
         .then((article)=>{
             res.status(204).end()
         })
-        .catch((err)=>console.log(err))
+        .catch(next)
     }
-
 }
