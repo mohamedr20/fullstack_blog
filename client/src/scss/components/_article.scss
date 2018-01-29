@@ -1,0 +1,47 @@
+.article-wrapper{
+    border-top:1px solid rgba(0,0,0,0.1);
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    padding:1.5rem 0;
+    margin-top:20px;
+    .article-container{
+        margin:0 1rem 0 0;
+        }
+}
+
+.article-container{
+    width:100%;
+    font-weight:300;
+    position:relative;
+    .article-image{
+        display: inline-block;
+        vertical-align: middle;
+        height: 32px;
+        width:32px;
+        background-color:grey;
+        border-radius:30px;
+    }
+    img{
+        display: inline-block;
+        vertical-align: middle;
+        height: 32px;
+        width:32px;
+        border-radius:30px;
+    }
+}
+
+.article-text{
+    .author{
+        font-weight:700;
+        display:block;
+    }
+    .date{
+        color:#bbb;
+        font-size:0.8rem;
+        display:block;
+    }
+}
+
+a{
+    text-decoration: none;
+    color:#bbb;
+}

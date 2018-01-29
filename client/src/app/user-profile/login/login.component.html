@@ -1,3 +1,35 @@
-<p>
-  login works!
-</p>
+<header class="primary-header container-fluid">
+  <div class="row">
+    <div class="col-lg-9 col-md-9">
+      <h2 class="brand">fullstack</h2>
+    </div>
+    <div class="col-lg-3 col-md-3">
+      <ul class="primary-nav">
+        <a routerLink="/" href=""><li>Home</li></a>
+        <a routerLink="/login" href=""><li>Sign In</li></a>
+        <a routerLink="/register" href=""><li>Sign Up</li></a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- <div class="card-wrapper">
+  <div class="card">
+      <input class="form-control" placeholder="username" type="text" name="" id="">
+      <input class="form-control" placeholder="password" type="text" name="" id="">
+    </div>
+</div> -->
+
+<div class="card-wrapper">
+  <div class="card">
+      <div class="wrapper">
+          <form>
+              <div class="group"><input type="text" required="required" /><span class="highlight"></span><span class="bar"></span><label>Name</label></div>
+              <div class="group"><input type="text" required="required" /><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
+              <button type="submit">Log In</button>
+          </form>
+      </div>
+  </div>
+</div>
