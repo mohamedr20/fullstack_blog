@@ -1,0 +1,31 @@
+$button-line-height:1.25;
+$button-border:1px solid transparent;
+
+
+
+button{
+    margin:0;
+    -webkit-appearance: button;
+    text-transform: none;
+    overflow: visible;
+
+}
+.btn{
+    display:inline-block;
+    font-weight:normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    line-height: $button-line-height;
+    border:$button-border;
+}
+.btn-lg{
+    padding:0.75rem 1.5rem;
+    font-size:1.25rem;
+    border-radius:0.3rem;
+}
+.btn-primary{
+    color:color('white');
+    background-color:color('blue');
+    border-color:color('blue');
+}

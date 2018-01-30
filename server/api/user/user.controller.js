@@ -24,6 +24,7 @@ module.exports = {
             email:req.body.email,
             password:req.body.password,
         })
+        console.log(newUser)
         User.addUser(newUser, (err, user) => {
             if(err) {
               res.json({success: false, msg: 'Failed to register user'});
@@ -36,9 +37,9 @@ module.exports = {
 
     },
     authenticate:function(req,res){
-        let username = req.body.username;
+        let email= req.body.email;
         let password = req.body.password;
-        User.getUserByUsername(username, (err, user) => {
+        User.getUserByEmail(email, (err, user) => {
           if(err) throw err;
           if(!user) {
             return res.json({success: false, msg: 'User not found'});
@@ -57,8 +58,6 @@ module.exports = {
                   name: user.name,
                   username: user.username,
                   email: user.email,
-                  bio:user.bio,
-                  photoUrl:user["image_url"]
                 }
               })
             } else {

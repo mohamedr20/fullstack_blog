@@ -21,15 +21,27 @@
       <input class="form-control" placeholder="password" type="text" name="" id="">
     </div>
 </div> -->
-
-<div class="card-wrapper">
-  <div class="card">
-      <div class="wrapper">
-          <form>
-              <div class="group"><input type="text" required="required" /><span class="highlight"></span><span class="bar"></span><label>Name</label></div>
-              <div class="group"><input type="text" required="required" /><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
-              <button type="submit">Log In</button>
-          </form>
+<div class="form-container">
+    <div class="row">
+      <div class="text-center col-lg-3">
+        <h1 class="text-center text-slim">Sign In</h1>
+        <a routerLink="/register" href=""><p class="text-center text-slim text-alternate">Need an account?</p></a>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <fieldset>
+            <fieldset class="form-group">
+              <input type="text" formControlName="email" class="form-control form-control-lg" placeholder="Email">
+            </fieldset>
+            {{formErrors.email}}
+            <fieldset class="form-group">
+                <input type="password" formControlName="password" class="form-control form-control-lg" placeholder="Password">
+              </fieldset>
+              {{formErrors.password}}
+              <button class=" btn-lg btn-primary">Sign In</button>
+          </fieldset>
+        </form>
       </div>
+    </div>
   </div>
-</div>
+
+
+
