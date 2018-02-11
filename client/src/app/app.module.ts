@@ -10,11 +10,18 @@ import { RegisterComponent } from './user-profile/register/register.component';
 import { HomeComponent } from './home/home.component';
 
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
+import { ProfileComponent } from './user-profile/profile/profile.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { EditorComponent } from './editor/editor.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const appRotes  = [
   {path:'',pathMatch:'full',component:HomeComponent},
+  {path:'profile/:id',component:ProfileComponent},
   {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent}
+  {path:'register',component:RegisterComponent},
+  {path:'editor',component:EditorComponent},
+  {path:'settings',component:SettingsComponent}
 ]
 
 @NgModule({
@@ -22,7 +29,11 @@ const appRotes  = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    HeaderComponent,
+    EditorComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

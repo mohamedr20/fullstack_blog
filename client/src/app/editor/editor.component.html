@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="article-form-container">
+  <div class="row">
+    <div class="text-center col-lg-8">
+      <form [formGroup]="articleForm" (ngSubmit)="publish()">
+        <fieldset>
+          <fieldset class="form-group">
+            <input type="text" formControlName="title" class="form-control form-control-lg" placeholder="Article Title">
+          </fieldset>
+          <fieldset class="form-group">
+              <input type="text" formControlName="description" class="form-control form-control-xlg" placeholder="What's this article about?">
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" formControlName="article" class="form-control form-control-lg" placeholder="Write your article(in markdown)">
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" formControlName="tags" class="form-control form-control-lg" placeholder="Enter Tags">
+            </fieldset>
+            <button class=" btn-lg btn-primary">Publish Article</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

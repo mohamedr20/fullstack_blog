@@ -16,12 +16,14 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm()
-    this.registerForm.valueChanges.subscribe(data=>console.log(data));
   }
 
   
   signup(){
     return this.auth.register(this.registerForm.value)
+    .subscribe((user)=>{
+      this.router.navigate(['/login'])
+    })
   }
 
   buildForm(){

@@ -13,10 +13,6 @@ export class AuthService {
    return this.http.post('http://localhost:8080/api/users',body,{
      headers:new HttpHeaders().set('Content-Type','application/json')
    })
-   .subscribe(
-     (res)=>console.log(res),
-     (err)=>console.log(err)
-    )
   }
 
 
@@ -24,9 +20,10 @@ export class AuthService {
     return this.http.post('http://localhost:8080/api/users/authenticate',body,{
       headers:new HttpHeaders().set('Content-Type','application/json')
     })
-    .subscribe(
-      (res)=>console.log(res),
-      (err)=>console.log(err)
-     )
   }
+
+  getUserInfo(data){
+    return this.http.get('http://localhost:8080/api/users/profile');
+  };
+  
 }

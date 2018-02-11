@@ -34,7 +34,13 @@ form{
 
 .form-control-lg{
   padding:0.75rem 1.5rem;
-  font-size:1.25rem;
+  font-size:1rem;
+  border-radius:0.3rem;
+}
+
+.form-control-xlg{
+  padding:3rem 1.5rem;
+  font-size:1rem;
   border-radius:0.3rem;
 }
 .form-group{

@@ -1,0 +1,22 @@
+<header class="primary-header container-fluid">
+    <div class="row">
+      <div class="col-lg-8 col-md-8">
+        <h2 class="brand">fullstack</h2>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <ul *ngIf="name.auth" class="primary-nav">
+            <a routerLink="home" href=""><li>Home</li></a>
+            <a routerLink="/editor" href=""><li>New Article</li></a>
+            <a routerLink="/settings" href=""><li>Settings</li></a>
+            <a routerLink="/profile" href=""><li>{{name.username}}</li></a>
+        </ul>
+
+        <ul *ngIf="!name.auth" class="primary-nav">
+            <a routerLink="home" href=""><li>Home</li></a>
+            <a routerLink="/login" href=""><li>Sign In</li></a>
+            <a routerLink="/register" href=""><li>Sign Up</li></a>
+        </ul>
+
+      </div>
+    </div>
+  </header>

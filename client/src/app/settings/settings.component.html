@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="setting-form-container">
+  <div class="row">
+    <div class="text-center col-lg-8">
+      <form [formGroup]="articleForm" (ngSubmit)="edit()">
+        <fieldset>
+          <fieldset class="form-group">
+            <input type="text" formControlName="photoUrl" class="form-control form-control-lg" placeholder="Enter photo url">
+          </fieldset>
+          <fieldset class="form-group">
+              <input type="text" formControlName="username" class="form-control form-control-lg" placeholder="Enter username">
+            </fieldset>
+            <fieldset class="form-group">
+              <textarea type="textarea" formControlName="bio" class="form-control form-control-xlg" placeholder="Write a short bio"></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" formControlName="email" class="form-control form-control-lg" placeholder="New Email">
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" formControlName="password" class="form-control form-control-lg" placeholder="New Password">
+            </fieldset>
+            <button class=" btn-lg btn-primary">Publish Article</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

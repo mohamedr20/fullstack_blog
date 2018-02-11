@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +10,24 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  userId:string;
   loginForm:FormGroup;
-  constructor(private fb:FormBuilder,private router:Router,private auth:AuthService) { }
+  constructor(private fb:FormBuilder,private router:Router,private activated:ActivatedRoute,private auth:AuthService) { }
 
   ngOnInit() {
     this.buildForm()
-    this.loginForm.valueChanges.subscribe(data=>console.log(data));
   }
 
   login(){
     return this.auth.login(this.loginForm.value)
+    .subscribe((data)=>{
+      this.userId = this.activated.snapshot['id'];
+      localStorage.clear()
+      localStorage.setItem('user',data["user"])
+      localStorage.setItem('username',data["user"]["username"])
+      localStorage.setItem('jwt-token',data["token"])
+      this.router.navigate(['/profile',data["user"]["id"]]);
+    })
   }
 
   buildForm(){
@@ -36,7 +43,6 @@ export class LoginComponent implements OnInit {
       Validators.maxLength(18)
     ]]
     });
-    this.loginForm.valueChanges.subscribe(data=>this.onValueChanged(data));
     this.onValueChanged();
   }
 
